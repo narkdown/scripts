@@ -1,0 +1,49 @@
+{
+  "name": "@narkdown/snippets",
+  "version": "1.0.0",
+  "description": "",
+  "engines": {
+    "node": ">=12"
+  },
+  "keywords": [
+    "notion",
+    "notionapi",
+    "notion-api",
+    "markdown"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/narkdown/snippets.git"
+  },
+  "license": "MIT",
+  "author": "Younho Choo <yo+github@younho9.com>",
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "scripts": {
+    "format": "prettier --write . --ignore-path ./node_modules/@younho9/prettier-config/.prettierignore",
+    "build": "tsc",
+    "start": "node --loader ts-node/esm",
+    "test": "xo && ava"
+  },
+  "xo": {
+    "prettier": true,
+    "rules": {
+      "@typescript-eslint/naming-convention": "off",
+      "unicorn/prefer-node-protocol": "off"
+    }
+  },
+  "prettier": "@younho9/prettier-config",
+  "dependencies": {
+    "@notionhq/client": "https://github.com/narkdown/notion-sdk-js",
+    "dotenv": "10.0.0",
+    "typescript": "4.4.4"
+  },
+  "devDependencies": {
+    "@tsconfig/node14": "1.0.1",
+    "@younho9/prettier-config": "2.2.2",
+    "ava": "3.15.0",
+    "prettier": "2.4.1",
+    "ts-node": "10.3.0",
+    "xo": "0.45.0"
+  }
+}
