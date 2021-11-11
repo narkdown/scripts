@@ -1,0 +1,26 @@
+name: notion-db2github
+
+on:
+  schedule:
+    - cron: 0 0 * * * # KST 9:00 AM on everyday
+  push:
+    branches:
+      - ci/**
+  workflow_dispatch: {}
+
+jobs:
+  notion-db2github:
+    name: notion-db2github
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+
+      - id: notion-db-2-github
+        uses: narkdown/notion-db2github@v0.2.0
+        with:
+          database-id: ${{ secrets.DATABASE_ID }}
+          notion-api-key: ${{ secrets.NOTION_API_KEY }}
+
+      - name: Get the output rows
+        run: echo "${{ steps.notion-db-2-github.outputs.rows }}"
