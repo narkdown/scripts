@@ -8,7 +8,7 @@ dotenv.config();
 const notion = new Client({auth: process.env.NOTION_API_KEY});
 
 (async () => {
-  const databaseId = '76354a006abb4ecea62a8665c90cb3db';
+  const databaseId = '81fd717b19f84ba9bb05dce17fb48370';
   const response = await notion.databases.query({
     database_id: databaseId,
     filter: {
@@ -34,5 +34,6 @@ const notion = new Client({auth: process.env.NOTION_API_KEY});
       },
     ],
   });
-  console.log(response);
+
+  console.dir(response, {depth: null});
 })();
